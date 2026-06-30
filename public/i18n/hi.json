@@ -1,0 +1,21 @@
+{
+  "nav": {
+    "home": "मुख्य पृष्ठ",
+    "donors": "दानदाता",
+    "gallery": "गैलरी",
+    "blog": "कहानियाँ",
+    "contact": "संपर्क",
+    "donate": "दान करें"
+  },
+  "hero": {
+    "eyebrow": "भारत से एक आंदोलन · 2020 से",
+    "headline": "एक बेहतर जगह",
+    "headlineAccent": "सबके लिए।",
+    "ctaPrimary": "अभी दान करें",
+    "ctaSecondary": "हमारा कार्य देखें"
+  },
+  "common": {
+    "readMore": "और पढ़ें",
+    "viewAll": "सभी देखें"
+  }
+}

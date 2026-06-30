@@ -1,0 +1,21 @@
+{
+  "nav": {
+    "home": "Home",
+    "donors": "Donors",
+    "gallery": "Gallery",
+    "blog": "Stories",
+    "contact": "Contact",
+    "donate": "Donate"
+  },
+  "hero": {
+    "eyebrow": "A movement from India · est. 2020",
+    "headline": "A better place",
+    "headlineAccent": "for all.",
+    "ctaPrimary": "Donate now",
+    "ctaSecondary": "See our work"
+  },
+  "common": {
+    "readMore": "Read more",
+    "viewAll": "View all"
+  }
+}

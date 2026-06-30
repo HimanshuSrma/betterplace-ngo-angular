@@ -1,0 +1,96 @@
+<header
+  class="fixed inset-x-0 top-0 z-50 transition-all duration-500"
+  [class.py-2]="scrolled()"
+  [class.py-4]="!scrolled()">
+  <div class="container-x">
+    <nav
+      class="relative flex items-center justify-between rounded-full border border-soft px-4 py-3 transition-all duration-500"
+      [class.glass]="scrolled()"
+      [class.bg-transparent]="!scrolled()">
+      <a routerLink="/" class="flex items-center gap-2 group">
+        <span class="grid h-10 w-10 place-items-center rounded-full bg-gradient-to-br from-brand-500 to-accent-500 text-white font-bold shadow-lg shadow-brand-500/40">
+          <img src="/img/1.png" alt="Betterplace" class="h-9 w-9 rounded-full object-cover" />
+        </span>
+        <span class="hidden sm:flex flex-col leading-tight">
+          <span class="font-display text-lg tracking-tight">Betterplace</span>
+          <span class="text-[10px] uppercase tracking-[0.25em] text-muted">A movement</span>
+        </span>
+      </a>
+
+      <ul class="hidden md:flex items-center gap-1 text-sm">
+        <li *ngFor="let l of links">
+          <a
+            [routerLink]="l.path"
+            routerLinkActive="text-accent-400"
+            [routerLinkActiveOptions]="{ exact: l.path === '/' }"
+            class="relative inline-flex items-center rounded-full px-4 py-2 text-current/80 hover:text-current transition">
+            {{ l.label }}
+          </a>
+        </li>
+      </ul>
+
+      <div class="flex items-center gap-2">
+        <button
+          (click)="theme.toggle()"
+          appMagnetic
+          [magneticStrength]="0.25"
+          class="grid h-10 w-10 place-items-center rounded-full border border-soft hover:bg-white/5 transition"
+          aria-label="Toggle theme">
+          <ng-container *ngIf="theme.mode() === 'dark'; else moon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+              <circle cx="12" cy="12" r="4"></circle>
+              <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+            </svg>
+          </ng-container>
+          <ng-template #moon>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+          </ng-template>
+        </button>
+
+        <a
+          routerLink="/contact"
+          appMagnetic
+          class="hidden md:inline-flex btn-primary text-sm">
+          Donate
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M13 5l7 7-7 7"/>
+          </svg>
+        </a>
+
+        <button
+          class="md:hidden grid h-10 w-10 place-items-center rounded-full border border-soft"
+          (click)="open.set(!open())"
+          aria-label="Menu">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path *ngIf="!open()" d="M4 7h16M4 12h16M4 17h16"/>
+            <path *ngIf="open()" d="M6 6l12 12M18 6L6 18"/>
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <div
+      class="md:hidden overflow-hidden rounded-3xl mt-2 glass transition-all duration-500"
+      [class.max-h-0]="!open()"
+      [class.max-h-96]="open()"
+      [class.opacity-0]="!open()"
+      [class.opacity-100]="open()">
+      <ul class="p-4 space-y-1">
+        <li *ngFor="let l of links">
+          <a
+            [routerLink]="l.path"
+            (click)="open.set(false)"
+            routerLinkActive="text-accent-400"
+            [routerLinkActiveOptions]="{ exact: l.path === '/' }"
+            class="block rounded-2xl px-4 py-3 hover:bg-white/5 transition">
+            {{ l.label }}
+          </a>
+        </li>
+        <li class="pt-2"><a routerLink="/contact" (click)="open.set(false)" class="btn-primary w-full justify-center">Donate</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+<div class="h-24"></div>

@@ -1,0 +1,49 @@
+<section class="section pt-12">
+  <div class="container-x">
+    <span class="eyebrow">Better to give than to receive</span>
+    <h1 appSplitText class="heading-xl mt-4 text-5xl md:text-8xl">
+      Donors & <span class="grad-text">Members</span>.
+    </h1>
+    <p appReveal class="mt-6 max-w-2xl text-muted text-lg">
+      The people behind Betterplace — friends, family, government officers, professionals, and
+      activists who give their time, expertise, and resources.
+    </p>
+  </div>
+</section>
+
+<section class="pb-24">
+  <div class="container-x">
+    <div appReveal [revealChildren]="'article'" [revealStagger]="0.08" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <article *ngFor="let m of members; let i = index" class="group relative overflow-hidden rounded-3xl border border-soft glass">
+        <figure class="relative aspect-[4/5] overflow-hidden">
+          <img [src]="m.photo" [alt]="m.name" class="h-full w-full object-cover transition-transform duration-[1200ms] group-hover:scale-110" loading="lazy" />
+          <div class="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/30 to-transparent"></div>
+        </figure>
+        <div class="absolute bottom-0 left-0 right-0 p-6">
+          <p class="text-xs uppercase tracking-[0.25em] text-muted">{{ ('0' + (i + 1)).slice(-2) }} · Member</p>
+          <h3 class="font-display text-2xl mt-1">{{ m.name }}</h3>
+          <p class="mt-2 text-sm text-current/80 line-clamp-3">{{ m.bio }}</p>
+        </div>
+      </article>
+    </div>
+
+    <div appReveal class="mt-20 grid gap-6 md:grid-cols-3 text-center">
+      <div class="rounded-3xl border border-soft p-8">
+        <p class="font-display text-5xl">100%</p>
+        <p class="text-xs uppercase tracking-[0.25em] text-muted mt-2">Volunteer-led</p>
+      </div>
+      <div class="rounded-3xl border border-soft p-8">
+        <p class="font-display text-5xl">0%</p>
+        <p class="text-xs uppercase tracking-[0.25em] text-muted mt-2">Salaries from donations</p>
+      </div>
+      <div class="rounded-3xl border border-soft p-8">
+        <p class="font-display text-5xl">∞</p>
+        <p class="text-xs uppercase tracking-[0.25em] text-muted mt-2">Heart in every action</p>
+      </div>
+    </div>
+
+    <div class="mt-20 text-center">
+      <a routerLink="/contact" class="btn-primary">Become a member</a>
+    </div>
+  </div>
+</section>

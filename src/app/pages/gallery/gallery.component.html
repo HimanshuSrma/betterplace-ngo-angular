@@ -1,0 +1,30 @@
+<section class="section pt-12">
+  <div class="container-x">
+    <span class="eyebrow">Field notes</span>
+    <h1 appSplitText class="heading-xl mt-4 text-5xl md:text-8xl">
+      <span class="grad-text">Gallery</span>.
+    </h1>
+    <p appReveal class="mt-6 max-w-2xl text-muted text-lg">
+      Plantations, rescues, drives — moments captured on the ground. Scroll right.
+    </p>
+  </div>
+</section>
+
+<section class="relative h-screen overflow-hidden">
+  <div #track class="absolute top-0 left-0 flex h-full items-center gap-6 px-10 will-change-transform">
+    <figure *ngFor="let src of images; let i = index" class="relative h-[70vh] w-[55vw] sm:w-[40vw] md:w-[30vw] lg:w-[24vw] shrink-0 overflow-hidden rounded-3xl">
+      <img [src]="src" [alt]="'Field ' + i" class="h-full w-full object-cover" loading="lazy" />
+      <div class="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-black/70 via-black/0">
+        <p class="text-xs uppercase tracking-[0.25em] text-white/80">No. {{ ('0' + (i + 1)).slice(-2) }}</p>
+      </div>
+    </figure>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container-x grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+    <figure *ngFor="let src of images" class="relative aspect-square overflow-hidden rounded-2xl group">
+      <img [src]="src" alt="" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+    </figure>
+  </div>
+</section>

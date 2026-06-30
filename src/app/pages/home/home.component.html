@@ -1,0 +1,245 @@
+<!-- HERO -->
+<section class="relative min-h-[100svh] overflow-hidden">
+  <div class="absolute inset-0 -z-10">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_60%_80%_at_50%_0%,rgb(54_168_67/0.18),transparent_70%)]"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_50%_60%_at_80%_60%,rgb(249_109_0/0.18),transparent_70%)]"></div>
+  </div>
+
+  <div class="absolute inset-0 -z-10 opacity-80">
+    <app-hero3d />
+  </div>
+
+  <div class="container-x relative pt-20 md:pt-28">
+    <span appReveal class="eyebrow">A movement from India · est. 2020</span>
+
+    <h1
+      appSplitText
+      class="heading-xl mt-6 text-5xl sm:text-7xl md:text-[8rem] lg:text-[9.5rem] tracking-[-0.04em]">
+      A better place
+      <span class="grad-text">for all.</span>
+    </h1>
+
+    <div appReveal class="mt-10 grid md:grid-cols-12 gap-6 items-end">
+      <p class="md:col-span-7 max-w-2xl text-lg text-muted leading-relaxed">
+        Betterplace is a vision born from purpose and passion — championing
+        <em class="not-italic text-current">nature conservation, animal welfare, clean energy</em>
+        and <em class="not-italic text-current">human upliftment</em>. Founded by Anirudh Atrish.
+      </p>
+      <div class="md:col-span-5 flex flex-wrap items-center gap-3">
+        <a routerLink="/contact" appMagnetic class="btn-primary">
+          Donate now
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <a routerLink="/gallery" appMagnetic class="btn-ghost">
+          See our work
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="absolute bottom-6 left-0 right-0 z-10">
+    <app-marquee [items]="marqueeItems" [duration]="35" />
+  </div>
+</section>
+
+<!-- MISSION / WHO -->
+<section class="section">
+  <div class="container-x grid gap-12 md:grid-cols-12 md:items-center">
+    <div appReveal class="md:col-span-5">
+      <div class="relative aspect-[4/5] overflow-hidden rounded-3xl glass">
+        <img src="/img/anirudh-suit.jpg" alt="Anirudh Atrish" class="h-full w-full object-cover" />
+        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 via-black/0 p-6">
+          <p class="font-display text-xl text-white">Anirudh Atrish</p>
+          <p class="text-xs uppercase tracking-[0.25em] text-white/70">Founder · Betterplace</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="md:col-span-7">
+      <span class="eyebrow">Who we are</span>
+      <h2 appSplitText class="heading-xl mt-4 text-4xl md:text-6xl">
+        Built on the belief that <span class="grad-text">coexistence</span> is a synonym for progress.
+      </h2>
+      <div appReveal [revealStagger]="0.12" [revealChildren]="'p'" class="mt-6 space-y-4 text-muted leading-relaxed">
+        <p>
+          My name is Anirudh Atrish. After serving in a senior leadership role as an Assistant
+          General Manager, I stepped away from my corporate career for six months to fully dedicate
+          myself to this mission.
+        </p>
+        <p>
+          Today, I am proud to present Betterplace to the world. In March, I rejoined the
+          fast-paced corporate world — strategically supporting this initiative to ensure
+          Betterplace has the resources to thrive and scale.
+        </p>
+        <p class="text-current">
+          We champion a future powered by sustainability — where clean energy drives progress, and
+          there is room for everyone: nature, animals and humanity.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="section pt-0">
+  <div class="container-x">
+    <div appReveal [revealChildren]="'.stat'" [revealStagger]="0.15"
+      class="grid grid-cols-2 md:grid-cols-4 gap-px overflow-hidden rounded-3xl border border-soft bg-white/[0.02]">
+      <div class="stat p-8 md:p-10 bg-elev/30" *ngFor="let s of stats">
+        <p class="font-display text-5xl md:text-6xl tracking-tight">
+          <span [appCounter]="s.value" [counterSuffix]="s.suffix">0</span>
+        </p>
+        <p class="mt-2 text-sm uppercase tracking-[0.2em] text-muted">{{ s.label }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAUSES -->
+<section class="section">
+  <div class="container-x">
+    <div class="flex items-end justify-between gap-8 flex-wrap">
+      <div>
+        <span class="eyebrow">What we stand for</span>
+        <h2 appSplitText class="heading-xl mt-4 text-4xl md:text-6xl">Four pillars. One promise.</h2>
+      </div>
+      <p class="max-w-md text-muted">Every project we run sits on at least one of these foundations.</p>
+    </div>
+
+    <div appReveal [revealChildren]="'.cause'" [revealStagger]="0.1" class="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+      <article *ngFor="let c of causes" class="cause group relative overflow-hidden rounded-3xl border border-soft p-8 hover:border-accent-500/40 transition-colors">
+        <div class="absolute -right-12 -bottom-12 h-48 w-48 rounded-full bg-gradient-to-br from-accent-500/30 to-brand-500/0 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+        <div class="relative">
+          <div class="grid h-12 w-12 place-items-center rounded-2xl bg-accent-500/15 text-accent-400">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path [attr.d]="iconPath(c.icon)" />
+            </svg>
+          </div>
+          <h3 class="mt-6 font-display text-xl">{{ c.title }}</h3>
+          <p class="mt-2 text-sm text-muted leading-relaxed">{{ c.text }}</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- WORK GALLERY (horizontal scroll feel) -->
+<section class="section pt-0">
+  <div class="container-x mb-12">
+    <div class="flex items-end justify-between gap-6 flex-wrap">
+      <div>
+        <span class="eyebrow">Our work, on the ground</span>
+        <h2 appSplitText class="heading-xl mt-4 text-4xl md:text-6xl">In the field, for the field.</h2>
+      </div>
+      <a routerLink="/gallery" class="btn-ghost text-sm">View full gallery</a>
+    </div>
+  </div>
+  <div class="overflow-x-auto no-scrollbar pb-4">
+    <div class="flex gap-6 px-6 md:px-10">
+      <figure *ngFor="let src of workImages" class="relative shrink-0 w-[78vw] sm:w-[55vw] md:w-[34vw] lg:w-[26vw] aspect-[4/5] overflow-hidden rounded-3xl group">
+        <img [src]="src" alt="Field work" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/30"></div>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- SUCCESS STORY -->
+<section class="section">
+  <div class="container-x grid gap-10 md:grid-cols-2 items-center">
+    <div appParallax [parallaxSpeed]="-0.08" class="relative aspect-[4/3] overflow-hidden rounded-3xl">
+      <img src="/img/blog/cow-saved.JPG" alt="Cow rescued" class="h-full w-full object-cover" />
+    </div>
+    <div>
+      <span class="eyebrow">Success story</span>
+      <h2 appSplitText class="heading-xl mt-4 text-4xl md:text-5xl">
+        Saving a life in 5 minutes — proof that kindness can change the world.
+      </h2>
+      <p class="mt-6 text-muted leading-relaxed max-w-prose">
+        A rope had cut deep into the cow’s neck. Five minutes of calm, careful work — and a wound
+        that could have ended its life was undone. Sometimes saving a life does not take a
+        movement. It takes one person who refuses to look away.
+      </p>
+      <a routerLink="/blog/saving-a-life-in-5-minutes" class="btn-primary mt-8">
+        Read the full story
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- LATEST STORIES -->
+<section class="section pt-0">
+  <div class="container-x">
+    <div class="flex items-end justify-between gap-6 flex-wrap mb-10">
+      <h2 appSplitText class="heading-xl text-4xl md:text-5xl">Latest stories</h2>
+      <a routerLink="/blog" class="btn-ghost text-sm">All stories</a>
+    </div>
+    <div appReveal [revealChildren]="'article'" [revealStagger]="0.12" class="grid gap-8 md:grid-cols-3">
+      <article *ngFor="let p of blog.posts().slice(0, 3)" class="group">
+        <a [routerLink]="['/blog', p.slug]" class="block">
+          <figure class="aspect-[4/5] overflow-hidden rounded-3xl">
+            <img [src]="p.cover" [alt]="p.title" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
+          </figure>
+          <div class="mt-5 flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-muted">
+            <span *ngFor="let t of p.tags">{{ t }}</span>
+            <span class="opacity-50">·</span>
+            <time>{{ p.date }}</time>
+          </div>
+          <h3 class="mt-3 font-display text-xl leading-snug group-hover:text-accent-400 transition-colors">{{ p.title }}</h3>
+          <p class="mt-2 text-sm text-muted line-clamp-2">{{ p.excerpt }}</p>
+        </a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- VOLUNTEER CTA -->
+<section class="section">
+  <div class="container-x">
+    <div class="relative grid md:grid-cols-2 gap-10 overflow-hidden rounded-[2rem] border border-soft p-10 md:p-16">
+      <div class="absolute inset-0 -z-10">
+        <img src="/img/volunteer.jpg" alt="" class="h-full w-full object-cover opacity-40" />
+        <div class="absolute inset-0 bg-gradient-to-br from-ink-950/80 via-ink-950/60 to-transparent"></div>
+      </div>
+
+      <div>
+        <span class="eyebrow">Be a volunteer</span>
+        <h2 appSplitText class="heading-xl mt-4 text-4xl md:text-5xl">
+          The world will not heal itself. But it will heal, if we let it.
+        </h2>
+        <p class="mt-5 text-muted max-w-md">
+          Join an event. Donate. Or simply lend a few hours a month. Tell us how you’d like to
+          help.
+        </p>
+      </div>
+
+      <form [formGroup]="form" (ngSubmit)="submit()" class="glass rounded-3xl p-6 md:p-8 space-y-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <label class="block">
+            <span class="text-xs uppercase tracking-[0.2em] text-muted">Name</span>
+            <input formControlName="name" class="mt-2 w-full rounded-2xl border border-soft bg-transparent px-4 py-3 outline-none focus:border-accent-500 transition" placeholder="Your name" />
+            <p *ngIf="form.get('name')?.touched && form.get('name')?.hasError('required')" class="mt-1 text-xs text-red-400">Name is required.</p>
+          </label>
+          <label class="block">
+            <span class="text-xs uppercase tracking-[0.2em] text-muted">Mobile</span>
+            <input formControlName="number" class="mt-2 w-full rounded-2xl border border-soft bg-transparent px-4 py-3 outline-none focus:border-accent-500 transition" placeholder="+91 ..." />
+            <p *ngIf="form.get('number')?.touched && form.get('number')?.hasError('required')" class="mt-1 text-xs text-red-400">Mobile number is required.</p>
+          </label>
+          <label class="block">
+            <span class="text-xs uppercase tracking-[0.2em] text-muted">Occupation</span>
+            <input formControlName="occupation" class="mt-2 w-full rounded-2xl border border-soft bg-transparent px-4 py-3 outline-none focus:border-accent-500 transition" placeholder="What do you do?" />
+          </label>
+          <label class="block">
+            <span class="text-xs uppercase tracking-[0.2em] text-muted">Amount (optional)</span>
+            <input formControlName="amount" class="mt-2 w-full rounded-2xl border border-soft bg-transparent px-4 py-3 outline-none focus:border-accent-500 transition" placeholder="₹ amount" />
+          </label>
+        </div>
+        <button type="submit" [disabled]="sending" class="btn-primary w-full justify-center">
+          {{ sending ? 'Sending…' : sent ? 'Thank you ❤' : 'Send' }}
+        </button>
+        <p *ngIf="error" class="text-xs text-red-400">{{ error }}</p>
+      </form>
+    </div>
+  </div>
+</section>
