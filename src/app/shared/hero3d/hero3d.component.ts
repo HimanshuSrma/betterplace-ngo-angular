@@ -179,6 +179,9 @@ export class Hero3dComponent implements AfterViewInit, OnDestroy {
       const h = canvas.clientHeight;
       renderer.setSize(w, h, false);
       camera.aspect = w / h;
+      // pull camera back on narrow viewports so earth reads smaller
+      const vw = window.innerWidth;
+      camera.position.z = vw < 480 ? 9 : vw < 768 ? 7.5 : 5.6;
       camera.updateProjectionMatrix();
     };
     resize();
