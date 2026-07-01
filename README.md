@@ -73,4 +73,4 @@ ng build --configuration production
 # push dist/betterplace-angular/browser/ to gh-pages
 ```
 
-Crafted with care by **Himmanshu Sharma**.
+Crafted with care by **[Himmanshu Sharma](https://himmanshusharma.vercel.app/)**.
