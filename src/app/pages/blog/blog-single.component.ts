@@ -34,7 +34,7 @@ export class BlogSingleComponent implements OnInit {
     const p = this.post();
     if (!p) return '';
     const url = isPlatformBrowser(this.platformId) ? window.location.href : `https://betterplace.ngo/blog/${p.slug}`;
-    return encodeURIComponent(`${p.title} — ${url}`);
+    return encodeURIComponent(`${p.title} - ${url}`);
   });
 
   ngOnInit() {
@@ -43,7 +43,7 @@ export class BlogSingleComponent implements OnInit {
       const post = this.post();
       if (post) {
         this.seo.set({
-          title: `${post.title} — Betterplace`,
+          title: `${post.title} - Betterplace`,
           description: post.excerpt,
           image: post.cover
         });

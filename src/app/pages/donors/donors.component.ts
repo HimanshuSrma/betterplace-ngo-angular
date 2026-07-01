@@ -29,7 +29,7 @@ export class DonorsComponent implements OnInit {
     {
       name: 'Shiv Kumar',
       photo: '/img/person/shiv.jpeg',
-      bio: 'Exceptional government officer in the revenue department — a key member of our team.'
+      bio: 'Exceptional government officer in the revenue department - a key member of our team.'
     },
     {
       name: 'Lokesh Atrri',
@@ -49,7 +49,7 @@ export class DonorsComponent implements OnInit {
     {
       name: 'Anurag',
       photo: '/img/person/anurag.jpeg',
-      bio: 'The youngest activist of our team — eager to participate in every event.'
+      bio: 'The youngest activist of our team - eager to participate in every event.'
     },
     {
       name: 'Dr Kuldeep',
@@ -64,14 +64,14 @@ export class DonorsComponent implements OnInit {
     {
       name: 'Versha & Gaurav',
       photo: '/img/person/versha-gaurav.jpeg',
-      bio: 'Passionate about oxygen-generating plants — with TRIVENI being their favourite combo.'
+      bio: 'Passionate about oxygen-generating plants - with TRIVENI being their favourite combo.'
     }
   ];
 
   ngOnInit() {
     this.seo.set({
-      title: 'Donors & Members — Betterplace',
-      description: 'The people who power Betterplace — donors, members, friends and family.'
+      title: 'Donors & Members - Betterplace',
+      description: 'The people who power Betterplace - donors, members, friends and family.'
     });
   }
 }

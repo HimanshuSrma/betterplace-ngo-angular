@@ -5,7 +5,7 @@
       <span class="grad-text">Gallery</span>.
     </h1>
     <p appReveal class="mt-6 max-w-2xl text-muted text-lg">
-      Plantations, rescues, drives — moments captured on the ground. Scroll right.
+      Plantations, rescues, drives - moments captured on the ground. Scroll right.
     </p>
   </div>
 </section>
@@ -15,7 +15,7 @@
     <figure *ngFor="let src of images; let i = index" class="relative h-[70vh] w-[55vw] sm:w-[40vw] md:w-[30vw] lg:w-[24vw] shrink-0 overflow-hidden rounded-3xl">
       <img [src]="src" [alt]="'Field ' + i" class="h-full w-full object-cover" loading="lazy" />
       <div class="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-black/70 via-black/0">
-        <p class="text-xs uppercase tracking-[0.25em] text-white/80">No. {{ ('0' + (i + 1)).slice(-2) }}</p>
+        <!-- <p class="text-xs uppercase tracking-[0.25em] text-white/80">No. {{ ('0' + (i + 1)).slice(-2) }}</p> -->
       </div>
     </figure>
   </div>

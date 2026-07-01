@@ -57,7 +57,7 @@ export class HomeComponent implements OnInit {
     {
       icon: 'paw',
       title: 'Animal Welfare',
-      text: 'Rescue and feeding programs for cattle, strays and wildlife — five minutes can save a life.'
+      text: 'Rescue and feeding programs for cattle, strays and wildlife - five minutes can save a life.'
     },
     {
       icon: 'sun',
@@ -72,10 +72,10 @@ export class HomeComponent implements OnInit {
   ];
 
   stats = [
-    { value: 8500, suffix: '+', label: 'Trees planted' },
-    { value: 1200, suffix: '+', label: 'Animals helped' },
+    { value: 850, suffix: '+', label: 'Trees planted' },
+    { value: 120, suffix: '+', label: 'Animals helped' },
     { value: 42, suffix: '', label: 'Active volunteers' },
-    { value: 6, suffix: '', label: 'States touched' }
+    { value: 3, suffix: '', label: 'States touched' }
   ];
 
   workImages = [
@@ -96,7 +96,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.seo.set({
-      title: 'Betterplace — A Better Place For All',
+      title: 'Betterplace - A Better Place For All',
       description:
         'Nature conservation. Animal welfare. Clean energy. Human upliftment. Founded by Anirudh Atrish.',
       url: 'https://betterplace.ngo/'

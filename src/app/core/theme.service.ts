@@ -22,6 +22,8 @@ export class ThemeService {
       html.classList.toggle('dark', m === 'dark');
       if (isPlatformBrowser(this.platformId)) {
         localStorage.setItem('bp-theme', m);
+        const tc = this.doc.getElementById('bp-theme-color');
+        if (tc) tc.setAttribute('content', m === 'dark' ? '#0a0a0d' : '#fcfcfb');
       }
     });
   }

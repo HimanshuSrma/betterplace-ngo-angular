@@ -31,7 +31,7 @@ export class ContactComponent implements OnInit {
 
   ngOnInit() {
     this.seo.set({
-      title: 'Contact — Betterplace',
+      title: 'Contact - Betterplace',
       description: 'Reach out to volunteer, donate or partner with Betterplace.'
     });
   }

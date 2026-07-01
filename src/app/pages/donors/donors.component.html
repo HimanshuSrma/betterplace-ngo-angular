@@ -5,7 +5,7 @@
       Donors & <span class="grad-text">Members</span>.
     </h1>
     <p appReveal class="mt-6 max-w-2xl text-muted text-lg">
-      The people behind Betterplace — friends, family, government officers, professionals, and
+      The people behind Betterplace - friends, family, government officers, professionals, and
       activists who give their time, expertise, and resources.
     </p>
   </div>
@@ -17,7 +17,7 @@
       <article *ngFor="let m of members; let i = index" class="group relative overflow-hidden rounded-3xl border border-soft glass">
         <figure class="relative aspect-[4/5] overflow-hidden">
           <img [src]="m.photo" [alt]="m.name" class="h-full w-full object-cover transition-transform duration-[1200ms] group-hover:scale-110" loading="lazy" />
-          <div class="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/30 to-transparent"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-[rgb(var(--bg))] via-[rgb(var(--bg)/0.3)] to-transparent"></div>
         </figure>
         <div class="absolute bottom-0 left-0 right-0 p-6">
           <p class="text-xs uppercase tracking-[0.25em] text-muted">{{ ('0' + (i + 1)).slice(-2) }} · Member</p>

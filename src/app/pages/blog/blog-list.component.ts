@@ -32,7 +32,7 @@ export class BlogListComponent implements OnInit {
 
   ngOnInit() {
     this.seo.set({
-      title: 'Stories from the field — Betterplace',
+      title: 'Stories from the field - Betterplace',
       description: 'Stories, reflections and field notes from the Betterplace team.'
     });
   }

@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-loader',
   standalone: true,
   template: `
-    <div class="fixed inset-0 z-[100] grid place-items-center bg-ink-950 text-ink-50 animate-[fade-out_0.6s_ease_0.7s_forwards]">
+    <div class="fixed inset-0 z-[100] grid place-items-center bg-[rgb(var(--bg))] text-[rgb(var(--fg))] animate-[fade-out_0.6s_ease_0.7s_forwards]">
       <div class="flex flex-col items-center gap-4">
         <div class="relative h-16 w-16">
           <span class="absolute inset-0 rounded-full border-2 border-accent-500/30"></span>

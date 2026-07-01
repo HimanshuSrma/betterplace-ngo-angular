@@ -1,14 +1,27 @@
 <!doctype html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Betterplace — A Better Place For All</title>
+  <title>Betterplace - A Better Place For All</title>
   <base href="/" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="description" content="Betterplace is a nature, animal welfare, clean-energy and human upliftment movement. Plant. Protect. Uplift." />
-  <meta name="theme-color" content="#0a0a0d" media="(prefers-color-scheme: dark)" />
-  <meta name="theme-color" content="#fcfcfb" media="(prefers-color-scheme: light)" />
-  <meta property="og:title" content="Betterplace — A Better Place For All" />
+  <meta name="theme-color" id="bp-theme-color" content="#0a0a0d" />
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('bp-theme');
+        var prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+        var mode = saved || (prefersLight ? 'light' : 'dark');
+        if (mode === 'dark') document.documentElement.classList.add('dark');
+        var tc = document.getElementById('bp-theme-color');
+        if (tc) tc.setAttribute('content', mode === 'dark' ? '#0a0a0d' : '#fcfcfb');
+      } catch (e) {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
+  <meta property="og:title" content="Betterplace - A Better Place For All" />
   <meta property="og:description" content="Nature conservation. Animal welfare. Clean energy. Human upliftment." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="/img/home-hero-new.png" />

@@ -25,8 +25,8 @@ export class GalleryComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.seo.set({
-      title: 'Gallery — Betterplace',
-      description: 'Glimpses from Betterplace events — plantations, rescues, drives.'
+      title: 'Gallery - Betterplace',
+      description: 'Glimpses from Betterplace events - plantations, rescues, drives.'
     });
   }
 

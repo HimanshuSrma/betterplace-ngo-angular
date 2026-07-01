@@ -1,5 +1,6 @@
-import { AfterViewInit, Component, ElementRef, OnDestroy, PLATFORM_ID, ViewChild, inject } from '@angular/core';
+import { AfterViewInit, Component, EffectRef, ElementRef, Injector, OnDestroy, PLATFORM_ID, ViewChild, effect, inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
+import { ThemeService } from '../../core/theme.service';
 
 @Component({
   selector: 'app-hero3d',
@@ -10,9 +11,12 @@ import { isPlatformBrowser } from '@angular/common';
 export class Hero3dComponent implements AfterViewInit, OnDestroy {
   @ViewChild('c', { static: true }) canvas!: ElementRef<HTMLCanvasElement>;
   private platformId = inject(PLATFORM_ID);
+  private theme = inject(ThemeService);
+  private injector = inject(Injector);
   private raf = 0;
   private renderer: any;
   private cleanup: (() => void) | null = null;
+  private themeEffect: EffectRef | null = null;
 
   async ngAfterViewInit() {
     if (!isPlatformBrowser(this.platformId)) return;
@@ -35,14 +39,19 @@ export class Hero3dComponent implements AfterViewInit, OnDestroy {
     // renderer.toneMappingExposure = 1.05;
     this.renderer = renderer;
 
-    // --- TEXTURE: day map only ---
+    // --- TEXTURES: day + night, swapped via theme ---
     const loader = new THREE.TextureLoader();
     const load = (url: string) =>
       new Promise<any>((resolve, reject) => loader.load(url, resolve, undefined, reject));
-    // const dayMap = await load('/textures/earth_night.jpg');
-    const dayMap = await load('/textures/earth_day.jpg');
-    dayMap.colorSpace = THREE.SRGBColorSpace;
-    dayMap.anisotropy = renderer.capabilities.getMaxAnisotropy();
+    const [dayMap, nightMap] = await Promise.all([
+      load('/textures/earth_day.jpg'),
+      load('/textures/earth_night.jpg')
+    ]);
+    const maxAniso = renderer.capabilities.getMaxAnisotropy();
+    for (const t of [dayMap, nightMap]) {
+      t.colorSpace = THREE.SRGBColorSpace;
+      t.anisotropy = maxAniso;
+    }
 
     // --- other maps disabled ---
     // const [normalMap, specMap, nightMap, cloudMap] = await Promise.all([
@@ -55,8 +64,14 @@ export class Hero3dComponent implements AfterViewInit, OnDestroy {
 
     // --- EARTH (basic textured sphere, no lighting) ---
     const earthGeo = new THREE.SphereGeometry(1.6, 128, 128);
-    const earthMat = new THREE.MeshBasicMaterial({ map: dayMap });
+    const earthMat = new THREE.MeshBasicMaterial({
+      map: this.theme.mode() === 'dark' ? nightMap : dayMap
+    });
     const earth = new THREE.Mesh(earthGeo, earthMat);
+    this.themeEffect = effect(() => {
+      earthMat.map = this.theme.mode() === 'dark' ? nightMap : dayMap;
+      earthMat.needsUpdate = true;
+    }, { injector: this.injector });
     earth.rotation.order = 'YXZ';
     // bring India (lon=78°E) to front (+Z, camera-facing)
     const baseRotY = -Math.PI / 2 - THREE.MathUtils.degToRad(INDIA_LON_DEG);
@@ -153,7 +168,7 @@ export class Hero3dComponent implements AfterViewInit, OnDestroy {
     // );
     // scene.add(stars);
 
-    // --- LIGHTS (disabled — MeshBasicMaterial is unlit) ---
+    // --- LIGHTS (disabled - MeshBasicMaterial is unlit) ---
     // scene.add(new THREE.AmbientLight(0xffffff, 0.5));
     // const sun = new THREE.DirectionalLight(0xffffff, 1.5);
     // sun.position.copy(sunDir).multiplyScalar(5);
@@ -225,7 +240,8 @@ export class Hero3dComponent implements AfterViewInit, OnDestroy {
       // starGeo.dispose();
       // (stars.material as any).dispose();
       dayMap.dispose();
-      // [normalMap, specMap, nightMap, cloudMap].forEach((t: any) => t.dispose());
+      nightMap.dispose();
+      this.themeEffect?.destroy();
       renderer.dispose();
     };
   }
