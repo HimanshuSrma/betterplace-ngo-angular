@@ -20,11 +20,20 @@ export class ContactComponent implements OnInit {
 
   form: FormGroup = this.fb.group({
     name: ['', Validators.required],
-    number: ['', Validators.required],
+    number: ['', [Validators.required, Validators.pattern(/^\d{1,10}$/), Validators.maxLength(10)]],
     occupation: [''],
-    amount: [''],
+    amount: ['', [Validators.pattern(/^\d{0,10}$/), Validators.maxLength(10)]],
     message: ['']
   });
+
+  onNumericInput(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    input.value = input.value.replace(/\D/g, '').slice(0, 10);
+    const controlName = input.getAttribute('formControlName');
+    if (controlName) {
+      this.form.get(controlName)?.setValue(input.value, { emitEvent: false });
+    }
+  }
   sending = false;
   sent = false;
   error = '';
@@ -52,6 +61,9 @@ export class ContactComponent implements OnInit {
           this.sent = true;
           this.sending = false;
           this.form.reset();
+          setTimeout(() => {
+            this.sent = false;
+          }, 5000);
         },
         error: () => {
           this.error = 'Could not send. Please email betterplacengo@gmail.com directly.';

@@ -51,8 +51,9 @@
           </label>
           <label class="block">
             <span class="text-xs uppercase tracking-[0.2em] text-muted">Mobile</span>
-            <input formControlName="number" class="mt-2 w-full rounded-2xl border border-soft bg-transparent px-4 py-3 outline-none focus:border-accent-500 transition" placeholder="+91 9876543210" />
+            <input formControlName="number" inputmode="numeric" maxlength="10" (input)="onNumericInput($event)" class="mt-2 w-full rounded-2xl border border-soft bg-transparent px-4 py-3 outline-none focus:border-accent-500 transition" placeholder="9876543210" />
             <p *ngIf="form.get('number')?.touched && form.get('number')?.hasError('required')" class="mt-1 text-xs text-red-400">Mobile number is required.</p>
+            <p *ngIf="form.get('number')?.touched && form.get('number')?.hasError('pattern')" class="mt-1 text-xs text-red-400">Enter a valid number (up to 10 digits).</p>
           </label>
           <label class="block">
             <span class="text-xs uppercase tracking-[0.2em] text-muted">Occupation</span>
@@ -60,7 +61,7 @@
           </label>
           <label class="block">
             <span class="text-xs uppercase tracking-[0.2em] text-muted">Amount (optional)</span>
-            <input formControlName="amount" class="mt-2 w-full rounded-2xl border border-soft bg-transparent px-4 py-3 outline-none focus:border-accent-500 transition" placeholder="₹ amount" />
+            <input formControlName="amount" inputmode="numeric" maxlength="10" (input)="onNumericInput($event)" class="mt-2 w-full rounded-2xl border border-soft bg-transparent px-4 py-3 outline-none focus:border-accent-500 transition" placeholder="₹ amount" />
           </label>
         </div>
         <label class="block">

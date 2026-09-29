@@ -72,9 +72,9 @@ export class HomeComponent implements OnInit {
   ];
 
   stats = [
-    { value: 850, suffix: '+', label: 'Trees planted' },
-    { value: 120, suffix: '+', label: 'Animals helped' },
-    { value: 42, suffix: '', label: 'Active volunteers' },
+    { value: 5000, suffix: '+', label: 'Trees planted' },
+    { value: 140, suffix: '+', label: 'Animals helped' },
+    { value: 51, suffix: '', label: 'Active volunteers' },
     { value: 3, suffix: '', label: 'States touched' }
   ];
 
